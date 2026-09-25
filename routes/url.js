@@ -1,6 +1,11 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
 
-router.post('/url' , (req , res) => {
-    
-})
+const {
+    handleShortUrl
+} = require("../controller/url");
+
+const router = express.Router();
+
+router.post("/", handleShortUrl);
+
+module.exports = router;
