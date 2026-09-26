@@ -3,7 +3,7 @@ const urlRouter = require("./routes/url");
 
 const app = express();
 
-app.use(express.json());   // IMPORTANT
+app.use(express.json());
 
 app.use("/url", urlRouter);
 
