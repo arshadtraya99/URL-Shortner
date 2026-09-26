@@ -35,7 +35,18 @@ async function handleShortUrl(req, res) {
         });
     });
 }
+async function handleRedirect(req ,res) {
+    const shortId = req.params.shortId;
 
+    const sql = 'SELECT * FROM urls WHERE short_id = ?';
+
+    db.query(sql , [shortId] , (err , result) => {
+        if(err) {
+            return res.status(200).send('Error')
+        }
+        return res.status(200).send(result);
+    })
+}
 module.exports = {
-    handleShortUrl
+    handleShortUrl , handleRedirect
 };
